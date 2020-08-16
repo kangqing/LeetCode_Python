@@ -9,7 +9,7 @@ LeetCode278 第一个错误的版本
 """
 
 
-class Solution:
+class Solution278:
     import random
     x = random.randint(1, 1000)
     print('随机生成错误的版本开始为 = ', x)
@@ -36,5 +36,5 @@ class Solution:
 
 
 if __name__ == '__main__':
-    s = Solution()
+    s = Solution278()
     print('第一个错误的版本是 = ', s.first_bad_version(1000))

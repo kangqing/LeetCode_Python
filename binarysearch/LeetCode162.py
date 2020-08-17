@@ -1,10 +1,15 @@
-# -*- coding: utf-8 -*-
-# @Time    : 2020/8/17 6:27
-# @Author  : kangqing
-# @Email   :  kangqing.37@gmail.com
-# @File    : LeetCode162.py
-# @Software: PyCharm
-""" LeetCode162 寻找峰值 """
+#!/usr/bin/env python
+# -*- encoding: utf-8 -*-
+'''
+@File    :   LeetCode162.py
+@Time    :   2020/08/17 09:47:13
+@Author  :   kangqing
+@Contact :   kangqing.37@gmail.com
+@Software:   VS Code
+@Desc    :   LeetCode162 寻找峰值
+'''
+
+# here put the import lib
 from typing import List
 
 

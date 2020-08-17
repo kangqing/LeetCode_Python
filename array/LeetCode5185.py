@@ -27,8 +27,22 @@ class Solution:
             return True
         return False
 
+    @staticmethod
+    def three_consecutive_odds_1(arr: List[int]) -> bool:
+        coll = list([])
+        for x in arr:
+            if x % 2 == 1:
+                coll.append(x)
+                if len(coll) == 3:
+                    return True
+            else:
+                coll.clear()       
+        return False
+
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.three_consecutive_odds([1, 2, 34, 3, 4, 5, 7, 23, 12]))
+    d = [1, 2, 34, 3, 4, 5, 7, 23, 12]
+    print(s.three_consecutive_odds(d))
+    print(s.three_consecutive_odds_1(d))
 

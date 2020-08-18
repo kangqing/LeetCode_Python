@@ -8,6 +8,8 @@
 """
 基本数值计算
 """
+
+
 print('*** python没有 i++ i-- 和 ++i --i等自增自减写法, i += 1可以这样写')
 print('除法返回浮点型 = ', 17 / 3)
 print('与java相同，取余数 = ', 17 % 3)
@@ -251,4 +253,40 @@ print('yz_d = tuple(d) 把d转换为元组,输出元组yz_d = ', yz_d)
 yz_s = tuple('coffee')
 print('把字符串转换为元组,则字符串会拆分 输出yz_s = ', yz_s)
 print('-----------------------------------------------')
+
+
+'''
+字符串的各种格式化方法
+'''
+# 定义字符串模板
+formatStr = 'Hello, %s, I am from %s'
+# 初始化字符串格式化参数，***必须使用元组***
+values = ('python', 'java')
+# 格式化字符串
+print(formatStr % values)
+
+# 练习保留小数点后 2 位，怎么格式化输出百分数
+formatStr = '这里以圆周率为例，保留圆周率小数点后 2 位, PI = %.2f, 我个人觉得你%d%%能够听懂'
+# 导入math中的圆周率变量
+from math import pi
+# 定义元组用来格式化
+values = (pi, 100)
+# 格式化字符串打印
+print(formatStr % values)
+
+# 使用string模块的Template类来格式化字符串
+# 注意如果要格式化的变量跟
+from string import Template
+formatStr = Template("$x$$美元能换多少英镑, ${m}thon, 你知道吗？")
+print(formatStr.substitute(x = 100, m = 'py'))
+
+# 使用字典格式化字符串的值
+data = {}
+data['x'] = 50
+data['m'] = 'py'
+print(formatStr.substitute(data))
+
+# 字符串本身的format方法格式化字符串的使用方法
+print('hell0, {}, I am from {}'.format('python', 'java'))
+print('hell0, {a}, I am from {b}'.format(a = 'python3', b = 'java'))
 

@@ -14,7 +14,7 @@ class Solution278:
     x = random.randint(1, 1000)
     print('随机生成错误的版本开始为 = ', x)
 
-    def first_bad_version(self, n):
+    def first_bad_version(self, n:int) -> int:
         left, right = 1, n
         while left < right:
             mid = (left + right) // 2
@@ -28,7 +28,7 @@ class Solution278:
         return left
 
     # 检验当前版本是否是错误版本
-    def is_bad_version(self, version):
+    def is_bad_version(self, version: int) -> bool:
         if version >= self.x:
             return True
         else:
@@ -37,4 +37,5 @@ class Solution278:
 
 if __name__ == '__main__':
     s = Solution278()
-    print('第一个错误的版本是 = ', s.first_bad_version(1000))
+    n = 1000
+    print('第一个错误的版本是 = ', s.first_bad_version(n))

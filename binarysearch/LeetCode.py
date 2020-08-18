@@ -8,7 +8,7 @@ import random
 
 
 # python没有自增自减操作 i++, ++i 和 i--, --i都是不对的
-class LeetCode374:
+class LeetCode:
     # python只有类变量和实例变量的概念，没有静态变量的概念，这里x是类变量
     x = random.randint(1, 1000)
     print('自动生成的数字是 = ', x)
@@ -39,5 +39,5 @@ class LeetCode374:
 
 # main函数
 if __name__ == '__main__':
-    leetcode374 = LeetCode374()
+    leetcode374 = LeetCode()
     print('代码猜测结果是', leetcode374.guess_number(1000))

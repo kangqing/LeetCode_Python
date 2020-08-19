@@ -289,4 +289,3 @@ print(formatStr.substitute(data))
 # 字符串本身的format方法格式化字符串的使用方法
 print('hell0, {}, I am from {}'.format('python', 'java'))
 print('hell0, {a}, I am from {b}'.format(a = 'python3', b = 'java'))
-

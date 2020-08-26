@@ -269,7 +269,6 @@ print(formatStr % values)
 formatStr = '这里以圆周率为例，保留圆周率小数点后 2 位, PI = %.2f, 我个人觉得你%d%%能够听懂'
 # 导入math中的圆周率变量
 from math import pi
-from queue import Queue
 # 定义元组用来格式化
 values = (pi, 100)
 # 格式化字符串打印
@@ -299,12 +298,25 @@ list = []
 list.append(1)
 list.append(2)
 
-set = []
-set.append(3)
-set.insert(1, 4)
+set = set()
+set.add(3)
+set.add(4)
+set.add(3)
 
 dict = {}
 dict["key"] = "value"
 dict['小明'] = 100
 
-print('list = {}, set = {}, dict = {}'.format(list, set, dict))
+# 利用列表模拟一个栈
+stack = []
+stack.append(1)
+stack.append(2)
+stack.pop()
+
+# 利用列表模拟一个队列
+queue = []
+queue.append(1)
+queue.append(2)
+queue.pop(0)
+
+print('list = {}, set = {}, dict = {}, stack = {}, queue = {}'.format(list, set, dict, stack, queue))

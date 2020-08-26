@@ -269,6 +269,7 @@ print(formatStr % values)
 formatStr = '这里以圆周率为例，保留圆周率小数点后 2 位, PI = %.2f, 我个人觉得你%d%%能够听懂'
 # 导入math中的圆周率变量
 from math import pi
+import string
 # 定义元组用来格式化
 values = (pi, 100)
 # 格式化字符串打印
@@ -289,9 +290,11 @@ print(formatStr.substitute(data))
 # 字符串本身的format方法格式化字符串的使用方法
 print('hell0, {}, I am from {}'.format('python', 'java'))
 print('hell0, {a}, I am from {b}'.format(a = 'python3', b = 'java'))
+print('-----------------------------------------------')
 
 
 '''
+队列、栈、集合、列表、字典
 list,set,dict,deque
 '''
 list = []
@@ -320,3 +323,75 @@ queue.append(2)
 queue.pop(0)
 
 print('list = {}, set = {}, dict = {}, stack = {}, queue = {}'.format(list, set, dict, stack, queue))
+
+# 使用双端队列操作队列或者栈
+from collections import deque
+deque = deque()
+deque.append(1)
+deque.appendleft(2)
+deque.appendleft(3)
+print(deque)
+deque.pop()
+print(deque)
+deque.popleft()
+print(deque)
+print('-----------------------------------------------')
+
+
+'''
+字符串方法
+center 使字符串处于一定区间内的居中位置，默认两边填充空格，也可以自定义填充
+join 主要用于使用特定符号串联起一些值，是split的逆方法，常用于 linux 和 windows 的路径问题
+split 以一个标志字符拆分
+lower()/upper()/string.capwords(s) 转换成小写、大写、首字母大写
+find() 从字符串中找到第一个出现的子串的索引，找不到返回 -1
+find(s, startIndex, endIndex) 规定查找开始索引、或查找开始结束索引
+replace() 替换字符串，如果未找到则返回原字符串
+strip() 去掉前后空格
+translate 和 maketrans 替换一个字符，构造一个替换表
+'''
+print('<' + 'Hello Python'.center(30) + '>')
+print('<' + 'Hello Python'.center(30, '-') + '>')
+
+path = ['', 'usr', 'local', 'nginx', '']
+# 用 / 连接 path 列表中的值
+print('/'.join(path))
+# 用 \ 连接 path 列表中的值
+print('C:' + '\\'.join(path))
+
+s = '1-2-3-4-5-6-7'
+print(s.split('-'))
+
+s = 'this IS PYTHon'
+print('转换成小写 = ', s.lower())
+print('转换成大写 = ', s.upper())
+print('转换成首字母大写 = ', string.capwords(s))
+
+s = 'Hello Python'
+print(s.find('Hi'))
+print(s.find('Python'))
+
+print(s.replace('Python', 'java'))
+print(s.replace('l', '*'))
+print(s.replace('Hi', '你好'))
+
+print('   你好，Python       '.strip())
+
+s = 'This is Python'
+# h 替换成 &     y 替换成 *    n 删除
+table = s.maketrans('hy', '&*', 'n')
+print(s.translate(table))
+
+
+'''
+字典 dict 
+相当于 java 中的 map 键值对
+
+'''
+dict = {'小明' : 100, '小红' : 99}
+dict['小刚'] = 60
+print('字典的长度 = ', len(dict))
+# 删除字典key值为小刚的项
+del dict['小刚']
+print('判断key = 小刚是否在字典中 = ', '小刚' in dict)
+print(dict )

@@ -1,46 +1,37 @@
 '''
 Author: your name
 Date: 2020-08-17 06:24:55
-LastEditTime: 2020-08-26 07:58:19
+LastEditTime: 2020-08-27 07:29:55
 LastEditors: Please set LastEditors
 Description: In User Settings Edit
 FilePath: \LeetCode_Python\LeetCodeMatch.py
 '''
 """ 力扣周赛专用 """
 from typing import List
+import heapq
+import collections
 
 
 class SolutionMatch:
     """ 力扣周赛专用类 """
-    def letterCombinations(self, digits: str) -> List[str]:
-        dict = {}
-        dict['2'] = 'abc'
-        dict['3'] = 'def'
-        dict['4'] = 'ghi'
-        dict['5'] = 'jkl'
-        dict['6'] = 'mno'
-        dict['7'] = 'pqrs'
-        dict['8'] = 'tuv'
-        dict['9'] = 'wxyz'
-        if len(digits) == 1:
-            return list(dict[digits])
-        res = list([])
-        length = len(digits)
-        index = 0
-        while index < length - 1:
-            x = digits[index]
-            next = digits[index + 1]
-            index += 1
-            d1 = dict[x]
-            if len(res) > 0:
-                d1 = res.copy()
-                res.clear()
-            d2 = dict[next]
-            for i in d1:
-                for j in d2:
-                    res.append(i + j)
-        return res
+    def findItinerary(self, tickets: List[List[str]]) -> List[str]:
+        def dfs(curr: str):
+            while vec[curr]:
+                tmp = heapq.heappop(vec[curr])
+                dfs(tmp)
+            stack.append(curr)
+
+        vec = collections.defaultdict(list)
+        for depart, arrive in tickets:
+            vec[depart].append(arrive)
+        for key in vec:
+            heapq.heapify(vec[key])
+        
+        stack = list()
+        dfs("JFK")
+        return stack[::-1]
+
 
 if __name__ == '__main__':
     s = SolutionMatch()
-    print(s.letterCombinations('2'))
+    print(s.findItinerary([["EZE","TIA"],["EZE","HBA"],["AXA","TIA"],["JFK","AXA"],["ANU","JFK"],["ADL","ANU"],["TIA","AUA"],["ANU","AUA"],["ADL","EZE"],["ADL","EZE"],["EZE","ADL"],["AXA","EZE"],["AUA","AXA"],["JFK","AXA"],["AXA","AUA"],["AUA","ADL"],["ANU","EZE"],["TIA","ADL"],["EZE","ANU"],["AUA","ANU"]]))

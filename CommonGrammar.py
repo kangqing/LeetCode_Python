@@ -153,6 +153,7 @@ print('s[:3] = ', s[:3])
 print('s[8:] = ', s[8:])
 print('s[0:3] = ', s[0:3])
 print('s[-3:-1] = ', s[-3:-1])
+print('s[-3:] = ', s[-3:])
 print('s[-3:9] = ', s[-3:9])
 print('s[-3:10] = ', s[-3:10])
 
@@ -381,6 +382,7 @@ s = 'This is Python'
 # h 替换成 &     y 替换成 *    n 删除
 table = s.maketrans('hy', '&*', 'n')
 print(s.translate(table))
+print('-----------------------------------------------')
 
 
 '''

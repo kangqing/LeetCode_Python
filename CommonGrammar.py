@@ -269,6 +269,7 @@ print(formatStr % values)
 formatStr = '这里以圆周率为例，保留圆周率小数点后 2 位, PI = %.2f, 我个人觉得你%d%%能够听懂'
 # 导入math中的圆周率变量
 from math import pi
+from queue import Queue
 # 定义元组用来格式化
 values = (pi, 100)
 # 格式化字符串打印
@@ -289,3 +290,21 @@ print(formatStr.substitute(data))
 # 字符串本身的format方法格式化字符串的使用方法
 print('hell0, {}, I am from {}'.format('python', 'java'))
 print('hell0, {a}, I am from {b}'.format(a = 'python3', b = 'java'))
+
+
+'''
+list,set,dict,deque
+'''
+list = []
+list.append(1)
+list.append(2)
+
+set = []
+set.append(3)
+set.insert(1, 4)
+
+dict = {}
+dict["key"] = "value"
+dict['小明'] = 100
+
+print('list = {}, set = {}, dict = {}'.format(list, set, dict))

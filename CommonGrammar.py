@@ -397,3 +397,4 @@ print('字典的长度 = ', len(dict))
 del dict['小刚']
 print('判断key = 小刚是否在字典中 = ', '小刚' in dict)
 print(dict )
+print(dict['小明'])

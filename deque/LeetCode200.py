@@ -15,6 +15,8 @@ from collections import deque
 
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
+        if len(grid) == 0:
+            return 0
         row, col, count = len(grid), len(grid[0]), 0
         for x in range(row):
             for y in range(col):
@@ -34,13 +36,40 @@ class Solution:
             if 0 <= i and 0 <= j and i < len(grid) and j < len(grid[0]) and grid[i][j] == '1':
                 # 访问过的陆地标记为 v 
                 grid[i][j] = 'v'
-                d.append([i - 1, y])
-                d.append([i + 1, y])
-                d.append([i, y - 1])
-                d.append([i, y + 1])
+                d.append([i - 1, j])
+                d.append([i + 1, j])
+                d.append([i, j - 1])
+                d.append([i, j + 1])
+
+    # 深度优先搜索
+    def numIslands_dfs(self, grid: List[List[str]]) -> int:
+        if len(grid) == 0:
+            return 0
+        row, col, count = len(grid), len(grid[0]), 0
+        for x in range(row):
+            for y in range(col):
+                if grid[x][y] == '1':
+                    count += 1
+                    self.dfs(grid, x, y)
+        return count
+    
+    def dfs(self, grid: List[List[str]], x: int, y: int):
+        if x >=0 and y >= 0 and x < len(grid) and y < len(grid[x]) and grid[x][y] == '1':
+            grid[x][y] = 'v'
+            self.dfs(grid, x - 1, y)
+            self.dfs(grid, x + 1, y)
+            self.dfs(grid, x, y - 1)
+            self.dfs(grid, x, y + 1)
+
 
 
 if __name__ == '__main__':
     s = Solution()
-    arr = [["1","1","1","1","0"],["1","1","0","1","0"],["1","1","0","0","0"],["0","0","0","0","0"]]
-    print(s.numIslands(arr))
+    arr = [
+            ['1','1','0','0','0'],
+            ['1','1','0','0','0'],
+            ['0','0','1','0','0'],
+            ['0','0','0','1','1']
+          ]
+    # print(s.numIslands(arr))
+    print(s.numIslands_dfs(arr))

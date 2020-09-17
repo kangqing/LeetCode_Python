@@ -398,3 +398,22 @@ del dict['小刚']
 print('判断key = 小刚是否在字典中 = ', '小刚' in dict)
 print(dict )
 print(dict['小明'])
+
+
+'''
+动态规划生成一个长度为5的全是正无穷数组
+'''
+dp = [float('inf')] * 5
+dp[0] = 0
+print(dp)
+
+# 负无穷
+fdp = [-float('inf')] * 3
+print(fdp)
+
+print(dp[1] > 10000)
+print(fdp[1] > 1)
+
+# 转换为int类型
+print(int(dp[0]))
+

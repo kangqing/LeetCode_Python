@@ -50,7 +50,8 @@ class LRUCache:
             if len(self.map) > self.capacity:
                 # 证明容量不够了，需要删除头结点
                 node = self.removeHead()
-                del self.map[node.k]
+                key = node.k
+                self.map.pop(key)
         else:
             # 存在
             node = self.map[key]

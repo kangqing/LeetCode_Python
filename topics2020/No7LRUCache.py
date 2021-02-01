@@ -49,9 +49,9 @@ class LRUCache:
             self.addToTail(node)
             if len(self.map) > self.capacity:
                 # 证明容量不够了，需要删除头结点
-                node = self.removeHead()
-                key = node.k
-                self.map.pop(key)
+                removed = self.removeHead()
+                sk = removed.k
+                self.map.pop(sk)
         else:
             # 存在
             node = self.map[key]

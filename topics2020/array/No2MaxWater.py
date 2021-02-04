@@ -6,7 +6,7 @@
 @Author  :   kangqing
 @Contact :   kangqing.37@gmail.com
 @Software:   VS Code
-@Desc    :   盛最多水的容器
+@Desc    :   盛最多水的容器，双指针
 '''
 
 from typing import List

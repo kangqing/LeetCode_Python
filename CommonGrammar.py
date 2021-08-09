@@ -26,6 +26,11 @@ print(r'D:\some\name')
 print("会自动换行,", end="")
 print('如果不想换行')
 print('-----------------------------------------------')
+# 字符串拼接使用 + 号
+a = "strin"
+b = "g"
+print(a + b)
+print('-----------------------------------------------')
 
 
 '''
@@ -417,3 +422,22 @@ print(fdp[1] > 1)
 # 转换为int类型
 print(int(dp[0]))
 
+# 最大堆，最小堆
+import heapq
+# heapq 默认最小堆，不存在最大堆，如需要则需要巧妙利用负数
+heap = []
+heapq.heappush(heap, 10)
+heapq.heappush(heap, 1)
+heapq.heappush(heap, 3)
+print("输出最小堆的最小值 = ", heapq.heappop(heap))
+
+# 生成最大堆
+lis = [1, 4, 2]
+n = len(lis)
+# 构造负数，然后最小的数就成了负数中最大的数
+for i in range(n):
+    lis[i] = -lis[i]
+# 列表放进堆中
+heapq.heapify(lis)
+# 取出最小数，取负数则是最大数
+print("输出最大堆的最大值 = ", -heapq.heappop(lis))

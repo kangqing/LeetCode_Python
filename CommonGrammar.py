@@ -442,10 +442,11 @@ heapq.heapify(lis)
 # 取出最小数，取负数则是最大数
 print("输出最大堆的最大值 = ", -heapq.heappop(lis))
 
-# 数组、二维数组
+# 数组、二维数组、三维数组的使用
 arr = [0] * 5
 
 n = len(arr)
-dp = [[0] * n for a in range(n)]
-
-
+dp = [[0] * n for _ in range(n)]
+# 三维数组 dp[i][x][y]
+i, x, y = 2, 2, 2
+dp = [[[0] * y for _ in range(x)] for _ in range(i)]
